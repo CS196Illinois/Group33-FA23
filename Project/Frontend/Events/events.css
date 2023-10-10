@@ -9,3 +9,18 @@
 #firstEvent {
     margin-top: 0;
 }
+
+#searchBar {
+    padding-bottom: 3%;
+    background-color: white;
+    z-index: 5;
+}
+
+.fixed {
+    overflow: hidden;
+}
+
+.scrollit {
+    overflow-y: scroll;
+    height: 450px;
+}

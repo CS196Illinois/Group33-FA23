@@ -36,17 +36,17 @@
     </nav>
 
     <div class="container" id="content">
-        <div class="row">
+        <div class="row sticky-top" id="searchBar">
             <div class="col">
                 <input class="form-control" id="search" type="text" placeholder="Search.."><br>
             </div>
         </div>
         <div class="row">
-            <div class="col" id="menu">
+            <div class="col-lg-3 fixed" id="menu">
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
-                            <h6 class="title">Brands </h6>
+                            <h6 class="title">Types </h6>
                         </header>
                         <div class="filter-content">
                             <div class="card-body">
@@ -54,19 +54,25 @@
                                     <label class="form-check">
                                         <input class="form-check-input" type="checkbox" value="">
                                         <span class="form-check-label">
-                                            Mersedes Benz
+                                            Community Service
                                         </span>
                                     </label> <!-- form-check.// -->
                                     <label class="form-check">
                                         <input class="form-check-input" type="checkbox" value="">
                                         <span class="form-check-label">
-                                            Nissan Altima
+                                            Environment Protection
                                         </span>
                                     </label> <!-- form-check.// -->
                                     <label class="form-check">
                                         <input class="form-check-input" type="checkbox" value="">
                                         <span class="form-check-label">
-                                            Another Brand
+                                            Educational
+                                        </span>
+                                    </label> <!-- form-check.// -->
+                                    <label class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-label">
+                                            Others
                                         </span>
                                     </label> <!-- form-check.// -->
                                 </form>
@@ -77,26 +83,26 @@
 
                     <article class="card-group-item">
                         <header class="card-header">
-                            <h6 class="title">Choose type </h6>
+                            <h6 class="title">Registration Requirement</h6>
                         </header>
                         <div class="filter-content">
                             <div class="card-body">
                                 <label class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadio" value="">
                                     <span class="form-check-label">
-                                        First hand items
+                                        Not Required
                                     </span>
                                 </label>
                                 <label class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadio" value="">
                                     <span class="form-check-label">
-                                        Brand new items
+                                        Requird
                                     </span>
                                 </label>
                                 <label class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadio" value="">
                                     <span class="form-check-label">
-                                        Some other option
+                                        Any
                                     </span>
                                 </label>
                             </div> <!-- card-body.// -->
@@ -104,67 +110,7 @@
                     </article> <!-- card-group-item.// -->
                 </div> <!-- card.// -->
             </div>
-            <div class="col-9" id="eventList">
-                <div class="card eventCard" id="firstEvent">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card eventCard">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card eventCard">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card eventCard">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card eventCard">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card eventCard">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+            <div class="col-lg-9 scrollit" id="eventList">
             </div>
         </div>
     </div>
