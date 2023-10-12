@@ -22,5 +22,9 @@
 
 .scrollit {
     overflow-y: scroll;
-    height: 450px;
+    height: 70vh
+}
+
+.hide {
+    display: none;
 }
