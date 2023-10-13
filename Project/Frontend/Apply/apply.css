@@ -1,0 +1,223 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body and background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+
+
+/* Apply Form */
+.apply-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.apply-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.apply-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.apply-form input[type="text"],
+.apply-form input[type="email"],
+.apply-form input[type="tel"],
+.apply-form textarea,
+.apply-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.apply-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Link to Events */
+.link-to-events {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-to-events a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link-to-events a:hover {
+    text-decoration: underline;
+}
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body and background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #311D3F; /* Dark purple */
+    color: #f0f0f0; /* Light gray */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #E23E57; /* Red */
+    color: #f0f0f0; /* Light gray */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #f0f0f0; /* Light gray */
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+/* Apply Form */
+.apply-form {
+    background-color: #88304E; /* Dark red */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.apply-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f0f0f0; /* Light gray */
+}
+
+.apply-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #f0f0f0; /* Light gray */
+}
+
+.apply-form input[type="text"],
+.apply-form input[type="email"],
+.apply-form input[type="tel"],
+.apply-form textarea,
+.apply-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0; /* Light gray */
+    border-radius: 3px;
+    background-color: #522546; /* Darker red */
+    color: #f0f0f0; /* Light gray */
+}
+
+.apply-form input[type="submit"] {
+    background-color: #E23E57; /* Red */
+    color: #f0f0f0; /* Light gray */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-form input[type="submit"]:hover {
+    background-color: #88304E; /* Dark red */
+}
+
+/* Link to Events */
+.link-to-events {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-to-events a {
+    color: #E23E57; /* Red */
+    text-decoration: none;
+}
+
+.link-to-events a:hover {
+    text-decoration: underline;
+}
+#event-select {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0; /* Light gray */
+    border-radius: 3px;
+    background-color: #522546; /* Darker red */
+    color: #f0f0f0; /* Light gray */
+}
