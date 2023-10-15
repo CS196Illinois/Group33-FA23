@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Apply</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="apply.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/apply" class="active">Apply</a></li>
+            <li><a href="../Home/home.html">Home</a></li>
+            <li><a href="../AboutUs/aboutUs.html">About Us</a></li>
+            <li><a href="../Events/events.html">Events</a></li>
+            <li><a href="../Donate/donate.html">Donate</a></li>
+            <li><a href="./apply" class="active">Apply</a></li>
             <!-- Add other navigation links as needed -->
         </ul>
     </nav>
@@ -35,15 +36,21 @@
             <input type="tel" id="phone" name="phone">
 
             <label for="event-select">Select Event or Opportunity:</label>
-            <input type="text" id="event-select" name="event" list="event-list" required>
-            <datalist id="event-list">
-                <option value="Event 1">
-                <option value="Event 2">
-                <option value="Event 3">
-                <option value="Event 4">
-                <option value="Event 5">
-                <!-- Add more options as needed -->
-            </datalist>
+            <div class="dropdown">
+                <div id="myDropdown" class="dropdown-content">
+                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" onclick="filterFunction()">
+                    <div id = "listContent">
+                        <a href="#event0">Garbage Pickup</a>
+                        <a href="#event1">Food Pantry Visit</a>
+                        <a href="#event2">Soup Kitchen Visit</a>
+                        <a href="#event3">Teaching Children</a>
+                        <a href="#event4">Save the Birds</a>
+                        <a href="#event5">Serve as a Mentor</a>
+                        <a href="#event6">Spread Your Recipes</a>
+                    </div>
+                </div>
+            </div>
+            
 
             <label for="message">Additional Message (Optional):</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -51,6 +58,19 @@
             <input type="submit" value="Submit">
             <!-- Success message element -->
             <p id="success-message" style="display: none; color: green;">Your submission was successfully sent.</p>
+
+            <table id="applications-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Event</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here dynamically using JS -->
+                </tbody>
+            </table>
         </form>
     </section>
 
