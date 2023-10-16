@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="donate.js"></script>
 </head>
 <body>
     
@@ -242,23 +243,5 @@
 </div>
 
 </body>
-
-<script>
-
-const donations = [
-        { name: "Warren Jodjana", amount: "$100" },
-        { name: "Harold Indra", amount: "$200" },
-    ];
-
-    function displayDonations() {
-        const donationsTable = document.getElementById("donationsTable");
-        donations.forEach(donation => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${donation.name}</td><td>${donation.amount}</td>`;
-            donationsTable.appendChild(row);
-        });
-    }
-    displayDonations();
-</script>
 
 </html>
