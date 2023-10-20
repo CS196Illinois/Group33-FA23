@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donation Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script src="donation-form.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Payment methods</h4>
-                <ul class="list-group">
-                    <li class="list-group-item" onclick="changeMethod('card')">Payment by card</li>
-                    <li class="list-group-item" onclick="changeMethod('bank')">Internet banks</li>
-                    <li class="list-group-item" onclick="changeMethod('apple_google')">Apple/Google pay</li>
-                </ul>
-            </div>
-
-            <div class="col-md-4" id="paymentForm">
-            </div>
-            <div class="col-md-4">
-                <h4>Order information</h4>
-                <form id="donationForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" id="location" placeholder="123 Main St, City, Country">
-                    </div>
-                    <div class="form-group">
-                        <label for="origin">Where are you from?</label>
-                        <input type="text" class="form-control" id="origin" placeholder="City, Country">
-                    </div>
-                    <div class="form-group">
-                        <label for="donationAmount">Donation Amount</label>
-                        <input type="number" class="form-control" id="donationAmount" placeholder="100">
-                    </div>
-                    <div class="form-group">
-                        <label for="donationType">Type of Donation</label>
-                        <select class="form-control" id="donationType">
-                            <option value="one-time">One-Time Donation</option>
-                            <option value="monthly">Monthly Donation</option>
-                            <option value="annual">Annual Donation</option>
-                            <option value="in-kind">In-Kind Donation</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn btn-success btn-block" onclick="verifyData()">DONATE NOW</button>
-                </form>
-            </div>
-            
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Payment methods</h4>
+          <ul class="list-group">
+            <li class="list-group-item" onclick="changeMethod('card')">Payment by card</li>
+            <li class="list-group-item" onclick="changeMethod('bank')">Internet banks</li>
+            <li class="list-group-item" onclick="changeMethod('apple_google')">Apple/Google pay</li>
+          </ul>
         </div>
-    </div>
-</body>
 
+        <div class="col-md-4" id="paymentForm"></div>
+        <div class="col-md-4">
+          <h4>Order information</h4>
+          <form id="donationForm">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" class="form-control" id="fullName" placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="123 Main St, City, Country" />
+            </div>
+            <div class="form-group">
+              <label for="origin">Where are you from?</label>
+              <input type="text" class="form-control" id="origin" placeholder="City, Country" />
+            </div>
+            <div class="form-group">
+              <label for="donationAmount">Donation Amount</label>
+              <input type="number" class="form-control" id="donationAmount" placeholder="100" />
+            </div>
+            <div class="form-group">
+              <label for="donationType">Type of Donation</label>
+              <select class="form-control" id="donationType">
+                <option value="one-time">One-Time Donation</option>
+                <option value="monthly">Monthly Donation</option>
+                <option value="annual">Annual Donation</option>
+                <option value="in-kind">In-Kind Donation</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-success btn-block" onclick="verifyData()">DONATE NOW</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
