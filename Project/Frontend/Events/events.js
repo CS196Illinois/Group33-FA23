@@ -49,10 +49,6 @@ var data = {
 /* 
 var data = {}; // Declaring the global variable
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetchEvents();
-});
-
 function fetchEvents() {
     fetch('http://localhost:3000/events')
         .then(response => response.json())
@@ -62,7 +58,6 @@ function fetchEvents() {
             } else {
                 data = formatData(eventsFromDB);
                 console.log(data)
-                init(); // Call the initialization function here
             }
         })
         .catch(error => console.error('Error:', error));
@@ -196,6 +191,8 @@ function init() {
         `
     }
     list.innerHTML += content
+
+    fetchEvents();
 }
 
 window.onload = init
