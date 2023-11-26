@@ -15,6 +15,51 @@ const connection = mysql.createConnection({
     multipleStatements: true
 })
 
+var placeholderEventData = {
+    0: {
+        title: "Garbage Pickup",
+        subtitle: "Picking up garbage in Champaign",
+        desc: "Garbage bags and gloves will be provided.",
+        tags: ["Community Service", "Environmental"]
+    },
+    1: {
+        title: "Food Pantry Visit",
+        subtitle: "Help us pack food baskets for the homeless!",
+        desc: "Please sign up below, first 20 volunteers get a tote bag!",
+        tags: ["Community Service", "Food"]
+    },
+    2: {
+        title: "Soup Kitchen Visit",
+        subtitle: "Serve soup to impoverished communities",
+        desc: "Bring your own set of gloves please.",
+        tags: ["Community Service", "Food"]
+    },
+    3: {
+        title: "Teaching Children",
+        subtitle: "Read a book to communities of impoverished children",
+        desc: "Books will be provided, please show up to the library 30 minutes before your assigned time.",
+        tags: ["Community Service", "Educational"]
+    },
+    4: {
+        title: "Save the Birds",
+        subtitle: "Feed endangered birds in our community",
+        desc: "Enjoy birdwatching and nature? This will be perfect for you! Bird food will be provided.",
+        tags: ["Environmental", "Food"]
+    },
+    5: {
+        title: "Serve as a Mentor",
+        subtitle: "Spend a day with children coming from neglected households",
+        desc: "We encourage you to keep in contact with your assigned child after the program is over.",
+        tags: ["Community Service", "Educational"]
+    },
+    6: {
+        title: "Spread Your Recipes",
+        subtitle: "Prepare food for poor communities",
+        desc: "Please prepare enough to feed about 10 families. Share your recipes with other particpants!",
+        tags: ["Educational", "Food"]
+    }
+}
+
 initQuery = `
 CREATE DATABASE IF NOT EXISTS ngo;
 USE ngo;
@@ -24,6 +69,27 @@ connection.query(initQuery, function (err, result) {
     if (err) throw err
     console.log("Database Initialized")
 })
+
+connection.query("SELECT * FROM events", function (err, result, fields) {
+    if (err) throw err;
+    if (result.length == 0) {
+        for (key in placeholderEventData) {
+            var eventData = placeholderEventData[key]
+            var tags = ""
+            for (index in eventData.tags) {
+                if (index != 0) {
+                    tags += ","
+                }
+                tags += eventData.tags[index]
+            }
+            var query = `INSERT INTO events VALUES (UUID_TO_BIN(UUID()), '${eventData.title}','${eventData.subtitle}','${eventData.desc}', '${tags}')`
+            connection.query(query, function (err, result) {
+                if (err) throw err
+                console.log("Database Initialized")
+            })
+        }
+    }
+});
 
 app.get('/', (req, res) => {
     res.send("Backend Running")
