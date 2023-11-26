@@ -89,6 +89,7 @@ function renderEvents(fetchedData) {
     var list = document.getElementsByClassName("scrollit")[0]
     list.style.height = height / 2
     data = structuredClone(fetchedData)
+    content = ``
 
     for (let i = 0; i < fetchedData.length; i++) {
         var entry = fetchedData[i]
