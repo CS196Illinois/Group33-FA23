@@ -1,6 +1,36 @@
 // Define an array to store the submitted data
 const formDataArray = [];
 
+async function fetchEvents() {
+    try {
+        const response = await fetch('http://localhost:3000/events', {
+            method: "GET"
+        })
+
+        const result = await response
+        result.json().then(eventsFromDB => {
+                if (eventsFromDB.length === 0) {
+                    console.log("Your data is empty");
+                } else {
+                    renderEvents(eventsFromDB)
+                }
+            })
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
+function renderEvents(eventsFromDB) {
+    var eventList = document.getElementById("listContent")
+    eventList.innerHTML = ''
+    for (key in eventsFromDB) {
+        var data = eventsFromDB[key]
+        eventList.innerHTML += `<a href='#event${key}'>${data.title}</a>`
+    }
+    addEventLinkListener()
+}
+
 function storeFormData(event) {
     // Prevent the form from submitting and the page from reloading
     event.preventDefault();
@@ -70,14 +100,9 @@ function storeFormData(event) {
 }
 
 
-
-
-document.addEventListener("DOMContentLoaded", function() {
+function addEventLinkListener() {
     const eventLinks = document.querySelectorAll('#myDropdown a');
-    const myInput = document.getElementById("myInput");
-    const myDropdown = document.getElementById("myDropdown");
     const listContent = document.getElementById("listContent");
-
     for (let link of eventLinks) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -96,6 +121,13 @@ document.addEventListener("DOMContentLoaded", function() {
             listContent.style.display = "none";
         });
     }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetchEvents()
+    
+    const myInput = document.getElementById("myInput");
+    const myDropdown = document.getElementById("myDropdown");
 
     // Show the dropdown when the input is focused
     myInput.addEventListener('focus', function() {
