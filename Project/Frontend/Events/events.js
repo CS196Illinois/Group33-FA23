@@ -1,48 +1,40 @@
 // event card data
-var data = {
-    0: {
-        title: "Garbage Pickup",
-        subtitle: "Picking up garbage in Champaign",
-        desc: "Garbage bags and gloves will be provided.",
-        tags: ["Community Service", "Environmental"]
-    },
-    1: {
-        title: "Food Pantry Visit",
-        subtitle: "Help us pack food baskets for the homeless!",
-        desc: "Please sign up below, first 20 volunteers get a tote bag!",
-        tags: ["Community Service", "Food"]
-    },
-    2: {
-        title: "Soup Kitchen Visit",
-        subtitle: "Serve soup to impoverished communities",
-        desc: "Bring your own set of gloves please.",
-        tags: ["Community Service", "Food"]
-    },
-    3: {
-        title: "Teaching Children",
-        subtitle: "Read a book to communities of impoverished children",
-        desc: "Books will be provided, please show up to the library 30 minutes before your assigned time.",
-        tags: ["Community Service", "Educational"]
-    },
-    4: {
-        title: "Save the Birds",
-        subtitle: "Feed endangered birds in our community",
-        desc: "Enjoy birdwatching and nature? This will be perfect for you! Bird food will be provided.",
-        tags: ["Environmental", "Food"]
-    },
-    5: {
-        title: "Serve as a Mentor",
-        subtitle: "Spend a day with children coming from neglected households",
-        desc: "We encourage you to keep in contact with your assigned child after the program is over.",
-        tags: ["Community Service", "Educational"]
-    },
-    6: {
-        title: "Spread Your Recipes",
-        subtitle: "Prepare food for poor communities",
-        desc: "Please prepare enough to feed about 10 families. Share your recipes with other particpants!",
-        tags: ["Educational", "Food"]
-    }
+
+var data = {}; // Declaring the global variable
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetchEvents();
+});
+
+function fetchEvents() {
+    fetch('http://localhost:3000/events')
+        .then(response => response.json())
+        .then(eventsFromDB => {
+            if (eventsFromDB.length === 0) {
+                console.log("Your data is empty");
+            } else {
+                data = formatData(eventsFromDB);
+                console.log(data)
+                init(); // Call the initialization function here
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
+
+
+function formatData(eventsFromDB) {
+    let formattedData = {};
+    eventsFromDB.forEach((event, index) => {
+        formattedData[index] = {
+            title: event.title,
+            subtitle: event.subtitle,
+            desc: event.description,
+            tags: event.tags.split(',').map(tag => tag.trim()) // Splitting the tags and trimming any extra spaces
+        };
+    });
+    return formattedData;
+}
+
 
 // colors for badges
 var colors = {

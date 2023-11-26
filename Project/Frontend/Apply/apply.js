@@ -71,7 +71,7 @@ function storeFormData(event) {
 
 
 
-// Now, let's add functionality to the dropdown to allow selection
+
 document.addEventListener("DOMContentLoaded", function() {
     const eventLinks = document.querySelectorAll('#myDropdown a');
     const myInput = document.getElementById("myInput");
