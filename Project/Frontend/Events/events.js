@@ -1,4 +1,5 @@
 // event card data
+
 var data = {}
 
 async function fetchEvents() {
@@ -137,6 +138,40 @@ function renderEvents(fetchedData) {
 
 function init() {
     fetchEvents()
+    isLoggedIn().then(data=>{
+        console.log(data)
+    })
+}
+
+async function isLoggedIn() {
+    const token = localStorage.getItem("token")
+    const userName = localStorage.getItem("userName")
+    if (token == null || userName == null) {
+        return false
+    }
+    try {
+        const response = await fetch('http://localhost:3000/auth', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+              },
+            body: JSON.stringify({
+                user:userName,
+                token:token
+            })
+        })
+
+        const result = await response
+        if (result.status == 200) {
+            return true
+        } else {
+            return false
+        }
+        
+    } catch (error) {
+        console.error(error)
+        return false
+    }
 }
 
 window.onload = init

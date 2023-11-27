@@ -26,8 +26,12 @@ function checkIfRight(event) {
     },
     body: JSON.stringify(Object.fromEntries(formData)),
   }).then((response) => {
-    if (response.ok) {
-      window.location.replace("http://127.0.0.1:5500/Project/Frontend/Home/home.html");
+    if (response.status == 200) {
+      response.json().then(data => {
+        localStorage.setItem("userName", data.userName)
+        localStorage.setItem("token", data.token)
+      })
+      window.location.replace("../Home/home.html");
     } else {
       alert("Incorrect username or password.");
     }

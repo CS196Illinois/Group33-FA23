@@ -8,6 +8,8 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 
+var loginTemp = {}
+
 app.use(cors());
 var jsonParser = bodyParser.json();
 
@@ -147,13 +149,15 @@ app.post("/login", jsonParser, (req, res) => {
       const realPass = result[0]["password"];
       bcrypt.compare(data["password"], realPass, function (err, compResult) {
         if (compResult) {
-          res.sendStatus(200).send("Login Successful");
+          loginTemp[data['username']] = makeToken()
+          console.log(loginTemp)
+          res.status(200).send({userName:data['username'], token:loginTemp[data['username']]})
         } else {
-          res.sendStatus(401).send("Incorrect Password");
+          res.sendStatus(401)
         }
       });
     } else {
-      res.sendStatus(401).send("Username not found");
+      res.sendStatus(401)
     }
   });
 });
@@ -197,6 +201,35 @@ app.post("/events", jsonParser, (req, res) => {
   res.sendStatus(200).send("Event created successfully");
 });
 
+app.post("/auth", jsonParser, (req, res) => {
+  var data = req.body
+  const token = data.token
+  const user = data.user
+  console.log(loginTemp)
+  console.log(data)
+  for (userName in loginTemp) {
+    if (userName = user) {
+      if (token == loginTemp[user]) {
+        return res.sendStatus(200)
+      }
+    }
+  }
+  return res.sendStatus(401)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+
+function makeToken() {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < 20) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
