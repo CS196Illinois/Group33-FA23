@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="addEvent.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="addEventForm">
+            <h2>Add New Event</h2>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="subtitle">Subtitle:</label>
+                <input type="text" id="subtitle" name="subtitle" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated):</label>
+                <input type="text" id="tags" name="tags" required>
+            </div>
+            <button type="submit">Submit Event</button>
+        </form>
+    </div>
+    <script>
+    async function postEvent() {
+        const form = document.getElementById('addEventForm');
+        const formData = [
+                document.getElementById('title').value,
+                document.getElementById('subtitle').value,
+                document.getElementById('description').value,
+                document.getElementById('tags').value
+    ];
+            
+            await fetch('http://localhost:3000/events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('addEventForm');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            postEvent()
+            
+        });
+    });
+    </script>
+</body>
+</html>
