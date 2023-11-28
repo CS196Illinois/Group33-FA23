@@ -138,9 +138,40 @@ function renderEvents(fetchedData) {
 
 function init() {
     fetchEvents()
-    isLoggedIn().then(data=>{
-        console.log(data)
+    isLoggedIn().then(loggedIn=>{
+        if (loggedIn) {
+            const loginLink = document.getElementById("loginLink")
+            loginLink.innerHTML = "Logout"
+            loginLink.setAttribute("href","")
+            loginLink.onclick = logout
+        }
     })
+}
+
+async function logout() {
+    const userName = localStorage.getItem("userName")
+
+    try {
+        const response = await fetch('http://localhost:3000/logout', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+              },
+            body: JSON.stringify({
+                user:userName
+            })
+        })
+
+        const result = await response
+        if (result.status == 200) {
+            window.location.replace("../Home/home.html");
+        } else {
+            console.log("Failed to logout")
+        }
+        
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 async function isLoggedIn() {

@@ -150,7 +150,6 @@ app.post("/login", jsonParser, (req, res) => {
       bcrypt.compare(data["password"], realPass, function (err, compResult) {
         if (compResult) {
           loginTemp[data['username']] = makeToken()
-          console.log(loginTemp)
           res.status(200).send({userName:data['username'], token:loginTemp[data['username']]})
         } else {
           res.sendStatus(401)
@@ -160,6 +159,19 @@ app.post("/login", jsonParser, (req, res) => {
       res.sendStatus(401)
     }
   });
+});
+
+app.post("/logout", jsonParser, (req, res) => {
+  const data = req.body;
+  const user = data['user']
+
+  for (userName in loginTemp) {
+    if (userName == user) {
+      delete loginTemp[user]
+      return res.sendStatus(200)
+    }
+  }
+  return res.sendStatus(400)
 });
 
 app.get("/events", (req, res) => {
@@ -205,8 +217,6 @@ app.post("/auth", jsonParser, (req, res) => {
   var data = req.body
   const token = data.token
   const user = data.user
-  console.log(loginTemp)
-  console.log(data)
   for (userName in loginTemp) {
     if (userName = user) {
       if (token == loginTemp[user]) {
