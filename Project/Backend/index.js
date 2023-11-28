@@ -168,6 +168,7 @@ app.post("/logout", jsonParser, (req, res) => {
   for (userName in loginTemp) {
     if (userName == user) {
       delete loginTemp[user]
+      console.log("200 sent")
       return res.sendStatus(200)
     }
   }
@@ -199,18 +200,24 @@ app.get("/events/:eventID", (req, res) => {
 
 app.post("/events", jsonParser, (req, res) => {
   var data = req.body;
-  var title = data[0].value;
+  var title = data[0];
   var subtitle = data[1];
-  var description = data[2].value;
-  var tags = data[3].value;
-  query = `INSERT INTO events VALUES (UUID_TO_BIN(UUID()), '${title}','${subtitle}','${description}, ${tags}')`;
+  var description = data[2];
+  var tags = data[3];
+  var failed = false
+  query = `INSERT INTO events VALUES (UUID_TO_BIN(UUID()), '${title}','${subtitle}','${description}', '${tags}')`;
+  console.log(data)
+  console.log(query)
   connection.query(query, function (err, result, fields) {
     if (err) {
-      return res.status(500).send("Error creating event");
+      failed = true
+      console.log(err)
     }
-    console.log(result);
   });
-  res.sendStatus(200).send("Event created successfully");
+  if (failed) {
+    return res.sendStatus(500)
+  }
+  return res.sendStatus(200)
 });
 
 app.post("/auth", jsonParser, (req, res) => {

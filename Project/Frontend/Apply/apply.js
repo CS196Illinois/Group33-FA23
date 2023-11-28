@@ -163,7 +163,8 @@ function filterFunction() {
     }
 }
 
-async function logout() {
+async function logout(event) {
+    event.preventDefault()
     const userName = localStorage.getItem("userName")
 
     try {
