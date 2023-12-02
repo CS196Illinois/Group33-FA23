@@ -120,6 +120,11 @@ function init() {
       loginLink.innerHTML = "Logout";
       loginLink.setAttribute("href", "");
       loginLink.onclick = logout;
+      const addEventLink = document.getElementById("addEventLink")
+      addEventLink.style.display = "inline-block"
+    } else {
+      const addEventLink = document.getElementById("addEventLink")
+      addEventLink.style.display = "none"
     }
   });
 }
