@@ -71,4 +71,20 @@ function init() {
         }
     })
 }
+
+var factList = [
+    "Fact 1Fact 1Fact 1Fact 1Fact 1Fact 1Fact 1Fact 1",
+    "Fact 2Fact 2Fact 2Fact 2Fact 2Fact 2Fact 2Fact 2",
+    "Fact 3Fact 3Fact 3Fact 3Fact 3Fact 3Fact 3Fact 3",
+    // Add more facts as needed
+];
+
+var fact = document.getElementById("fact");
+
+function displayFact() {
+    // Randomly select a fact from the list
+    const randomIndex = Math.floor(Math.random() * factList.length);
+    fact.innerHTML = factList[randomIndex];
+}
+
 window.onload = init

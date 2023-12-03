@@ -1,27 +1,97 @@
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    margin: 5%;
-    font-family: Arial, sans-serif;
-    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+    background-color: white;
+    color: black;
 }
 
-.header {
-    text-align: center; 
-    margin-top: 20px;
-}
-
-#description {
+/* Header Section */
+.homepage-heading {
     text-align: center;
+    padding: 50px 0;
+    background-color: #f2f2f2;
+}
+
+.homepage-heading h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin: 0 5%;
+}
+
+/* Mission Section */
+#description {
     padding: 50px;
-    background-color: #f9f9f9;
 }
 
 #description h2 {
-    font-size: 36px;
+    font-size: 2em;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-#description p {
-    font-size: 18px;
-    color: #666;
+.learn-more-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #4CAF50; /* Earthy green color for the button */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Main Section */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.flex-item {
+    flex: 0 0 30%;
+    margin-bottom: 20px;
+}
+
+.flex-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+main {
+    text-align: justify;
+    padding: 20px;
+}
+
+.main h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* General Fact Section */
+.genFact {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#factBtn {
+    background-color: #2196F3; /* Earthy blue color for the button */
+    color: lightgreen;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Jumbotron Section */
+.jumbotron img {
+    width: 100%;
+    border-radius: 5px;
 }
